@@ -124,20 +124,20 @@ class Jobs extends Component {
         />
         <h1 className="no-jobs-heading">No Jobs Found</h1>
         <p className="no-jobs-description">
-          We could not find any jobs. Try others filters.
+          We could not find any jobs. Try other filters
         </p>
       </div>
     )
-  }
-
-  onChangeSearchInput = event => {
-    this.setState({searchInput: event.target.value})
   }
 
   onEnterSearchInput = event => {
     if (event.key === 'Enter') {
       this.getJobs()
     }
+  }
+
+  changeSearchInput = event => {
+    this.setState({searchInput: event.target.value})
   }
 
   changeSalary = salary => {
@@ -204,7 +204,7 @@ class Jobs extends Component {
             <FiltersGroup
               employmentTypesList={employmentTypesList}
               salaryRangesList={salaryRangesList}
-              onChangeSearchInput={this.onChangeSearchInput}
+              changeSearchInput={this.changeSearchInput}
               searchInput={searchInput}
               getJobs={this.getJobs}
               changeSalary={this.changeSalary}
